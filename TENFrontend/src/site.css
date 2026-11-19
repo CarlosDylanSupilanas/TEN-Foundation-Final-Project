@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&display=swap");
+
+/* Everything is scoped under .site so your dashboard styles are not affected */
+.site {
+    --ink: #1c2840;
+    --navy: #324976;
+    --navy-dark: #253859;
+    --orange: #f98500;
+    --paper: #f3f5f9;
+    --card: #ffffff;
+    --line: #d5dbe7;
+    --muted: #55627c;
+    --danger: #b3261e;
+    --danger-bg: #fdecea;
+    --font-head: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--paper);
+    min-height: 100vh;
+    color-scheme: light;
+}
+
+.site *, .site *::before, .site *::after { box-sizing: border-box; }
+
+.site h1, .site h2, .site h3, .site .site-brand {
+    font-family: var(--font-head);
+    line-height: 1.1;
+}
+
+.site a { color: inherit; }
+
+.site :focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
+}
+
+/* Header */
+.site .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px clamp(20px, 5vw, 64px);
+}
+
+.site .site-brand {
+    font-size: 1.35rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--navy);
+}
+
+.site .site-link { color: var(--navy); font-weight: 600; }
+
+/* Buttons */
+.site .site-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.site .site-btn-primary { background: var(--navy); color: #fff; }
+.site .site-btn-primary:hover { background: var(--navy-dark); }
+.site .site-btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.site .site-btn-lg { padding: 14px 24px; font-size: 1.1rem; }
+.site .site-btn-block { display: block; width: 100%; padding: 12px; }
+
+/* Hero */
+.site .site-hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(32px, 8vw, 96px) clamp(20px, 5vw, 64px);
+}
+
+.site .site-hero h1 {
+    font-size: clamp(2.2rem, 5.2vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.site .site-lead {
+    margin-top: 20px;
+    max-width: 46ch;
+    font-size: 1.2rem;
+    color: var(--muted);
+}
+
+.site .site-hero-actions { margin-top: 32px; }
+.site .site-hint { margin-top: 14px; font-size: 0.95rem; color: var(--muted); }
+
+/* ID badge */
+.site .site-badge {
+    justify-self: center;
+    width: min(300px, 100%);
+    padding: 34px 28px 26px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-top: 10px solid var(--navy);
+    border-radius: 18px;
+    box-shadow: 0 18px 40px -22px rgba(28, 40, 64, 0.45);
+    text-align: center;
+    position: relative;
+}
+
+.site .site-badge-slot {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    width: 56px;
+    height: 10px;
+    margin-left: -28px;
+    border-radius: 6px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+}
+
+.site .site-qr {
+    display: grid;
+    grid-template-columns: repeat(21, 1fr);
+    aspect-ratio: 1;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.site .site-qr i { display: block; }
+.site .site-qr i.on { background: var(--ink); }
+
+.site .site-badge figcaption { margin-top: 18px; display: grid; gap: 2px; }
+.site .site-badge strong { font-family: var(--font-head); font-size: 1.3rem; }
+.site .site-badge span { color: var(--muted); letter-spacing: 0.04em; }
+
+/* Steps */
+.site .site-steps {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px clamp(20px, 5vw, 64px) clamp(48px, 8vw, 96px);
+}
+
+.site .site-steps h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 20px; }
+
+.site .site-steps ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    border-top: 2px solid var(--navy);
+    padding-top: 24px;
+}
+
+.site .site-steps h3 { font-size: 1.2rem; margin-bottom: 6px; color: var(--navy); }
+.site .site-steps p { color: var(--muted); max-width: 34ch; }
+
+.site .site-footer {
+    padding: 24px clamp(20px, 5vw, 64px);
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+}
+
+/* Sign in */
+.site .site-signin-wrap {
+    display: grid;
+    place-items: start center;
+    padding: clamp(16px, 6vw, 72px) 20px;
+}
+
+.site .site-signin-card {
+    width: min(420px, 100%);
+    padding: 32px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 18px 40px -26px rgba(28, 40, 64, 0.45);
+}
+
+.site .site-signin-card h1 { font-size: 2rem; font-weight: 800; }
+.site .site-muted { color: var(--muted); margin: 6px 0 22px; }
+
+.site .site-signin-card label {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: 600;
+}
+
+.site .site-signin-card input[type="email"],
+.site .site-signin-card input[type="password"],
+.site .site-signin-card input[type="text"] {
+    width: 100%;
+    padding: 11px 12px;
+    font: inherit;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--navy);
+    border-radius: 8px;
+}
+
+.site .site-signin-card .site-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0 20px;
+    font-weight: 400;
+}
+
+.site .site-form-error {
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--danger);
+    background: var(--danger-bg);
+    font-weight: 600;
+}
+
+@media (max-width: 800px) {
+    .site .site-hero { grid-template-columns: 1fr; }
+    .site .site-steps ol { grid-template-columns: 1fr; }
+}
