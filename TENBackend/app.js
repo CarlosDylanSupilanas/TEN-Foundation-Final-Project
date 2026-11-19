@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import workerRoutes from "./routes/workerRoutes.js";
 import authRoutes, { getSecret } from "./routes/authRoutes.js";
+import bagRoutes from "./routes/bagRoutes.js";
 
 let corsOptions = {
     origin: 'http://localhost:5173'
@@ -18,6 +19,7 @@ app.use(cors(corsOptions));
 
 app.use('/auth', authRoutes);
 app.use('/worker', workerRoutes);
+app.use("/api/bags", bagRoutes);
 
 try {
     const port = 3000;

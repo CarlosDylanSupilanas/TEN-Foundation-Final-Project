@@ -69,6 +69,13 @@ const Home = () => {
           <Link className="site-btn site-btn-primary" to={signedIn ? "/admin" : "/signin"}>
             {signedIn ? "Open dashboard" : "Sign in"}
           </Link>
+          
+          {signedIn &&
+            localStorage.getItem("adminEmail") === "inventory@example.com" && (
+              <Link className="site-btn" to="/inventory">
+                Inventory
+              </Link>
+            )}
         </nav>
       </div>
 

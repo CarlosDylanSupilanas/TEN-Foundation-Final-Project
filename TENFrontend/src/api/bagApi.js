@@ -1,0 +1,1 @@
+export const BAG_URL = "http://localhost:3000/api/bags";

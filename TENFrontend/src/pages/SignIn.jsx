@@ -3,6 +3,9 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { API_URL, isSignedIn, setToken } from "../utils/auth";
 import "../site.css";
 
+// The inventory admin account (lowercase)
+const INVENTORY_EMAIL = "inventory@tenfoundation.com";
+
 const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -13,7 +16,13 @@ const SignIn = () => {
 
   // Already signed in: skip the form
   if (isSignedIn()) {
-    return <Navigate to="/admin" replace />;
+    const savedEmail = localStorage.getItem("adminEmail");
+    return (
+      <Navigate
+        to={savedEmail === INVENTORY_EMAIL ? "/inventory" : "/admin"}
+        replace
+      />
+    );
   }
 
   const handleSubmit = async (event) => {
@@ -42,7 +51,17 @@ const SignIn = () => {
       }
 
       setToken(data.token);
-      navigate("/admin", { replace: true });
+      // Remember which admin signed in
+      const lowerEmail = cleanEmail.toLowerCase();
+      localStorage.setItem("adminEmail", lowerEmail);
+
+      // Inventory admin goes to inventory, attendance admin goes to /admin
+      if (lowerEmail === INVENTORY_EMAIL) {
+        navigate("/inventory", { replace: true });
+      } else {
+        navigate("/admin", { replace: true });
+      }
+      
     } catch {
       setError("Can't reach the server. Check that the backend is running.");
     } finally {
